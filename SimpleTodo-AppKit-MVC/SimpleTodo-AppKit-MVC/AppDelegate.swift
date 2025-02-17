@@ -5,7 +5,13 @@
 //  Created by Kyuhyun Park on 2/17/25.
 //
 
-import Cocoa
+import AppKit
+
+// Main.storyboard 기본 윈도우 띄우지 않으려면
+// Main.Storyboard -> Window Controller Scene
+// -> Window Controller -> Is Initial Controller, uncheck 한다.
+//
+// project 파일 수정하지 않고 이렇게 하는 것이 무난해 보인다.
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -36,8 +42,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             defer: false
         )
 
-        window.title = "AppKit Demo"
-//        window.contentViewController = NavigatorController()
+        window.title = "Simple Todo"
+        window.contentViewController = HomeController()
         window.layoutIfNeeded()
         restoreWindowPosition()
         window.makeKeyAndOrderFront(nil)
@@ -56,6 +62,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             window.center()
         }
     }
-    
+
 }
 
