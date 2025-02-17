@@ -1,17 +1,19 @@
 //
-//  HomeController.swift
+//  SubjectListController.swift
 //  SimpleTodo-AppKit-MVC
 //
-//  Created by Kyuhyun Park on 2/17/25.
+//  Created by Kyuhyun Park on 2/18/25.
 //
 
-import AppKit
+import Cocoa
 
-class HomeController: NSViewController {
+class SubjectListController: NSViewController {
 
     let padding = 20.0
 
     let stackView = NSStackView()
+
+    var homeControllerDelegate: HomeControllerDelegate!
 
     override func loadView() {
         view = NSView()
@@ -38,6 +40,9 @@ class HomeController: NSViewController {
     }
 
     func setupStackItems() {
+        let textField = NSTextField(string: "...")
+        stackView.addArrangedSubview(textField)
+
         let button1 = NSButton(title: "Button 1", target: self, action: #selector(button1Clicked))
         stackView.addArrangedSubview(button1)
     }
@@ -46,4 +51,5 @@ class HomeController: NSViewController {
         print("button1 clicked")
     }
 
+    
 }
