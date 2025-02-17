@@ -7,19 +7,19 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		00332AB22D6344120097F8EA /* SimpleToDoAppKitMVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleToDoAppKitMVC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		00332AD82D6345BB0097F8EA /* SimpleTodo-AppKit-MVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SimpleTodo-AppKit-MVC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		00332AB42D6344120097F8EA /* SimpleToDoAppKitMVC */ = {
+		00332ADA2D6345BB0097F8EA /* SimpleTodo-AppKit-MVC */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = SimpleToDoAppKitMVC;
+			path = "SimpleTodo-AppKit-MVC";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		00332AAF2D6344120097F8EA /* Frameworks */ = {
+		00332AD52D6345BB0097F8EA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -29,18 +29,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00332AA92D6344120097F8EA = {
+		00332ACF2D6345BB0097F8EA = {
 			isa = PBXGroup;
 			children = (
-				00332AB42D6344120097F8EA /* SimpleToDoAppKitMVC */,
-				00332AB32D6344120097F8EA /* Products */,
+				00332ADA2D6345BB0097F8EA /* SimpleTodo-AppKit-MVC */,
+				00332AD92D6345BB0097F8EA /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		00332AB32D6344120097F8EA /* Products */ = {
+		00332AD92D6345BB0097F8EA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				00332AB22D6344120097F8EA /* SimpleToDoAppKitMVC.app */,
+				00332AD82D6345BB0097F8EA /* SimpleTodo-AppKit-MVC.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,64 +48,64 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00332AB12D6344120097F8EA /* SimpleToDoAppKitMVC */ = {
+		00332AD72D6345BB0097F8EA /* SimpleTodo-AppKit-MVC */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00332AC12D6344130097F8EA /* Build configuration list for PBXNativeTarget "SimpleToDoAppKitMVC" */;
+			buildConfigurationList = 00332AE72D6345BC0097F8EA /* Build configuration list for PBXNativeTarget "SimpleTodo-AppKit-MVC" */;
 			buildPhases = (
-				00332AAE2D6344120097F8EA /* Sources */,
-				00332AAF2D6344120097F8EA /* Frameworks */,
-				00332AB02D6344120097F8EA /* Resources */,
+				00332AD42D6345BB0097F8EA /* Sources */,
+				00332AD52D6345BB0097F8EA /* Frameworks */,
+				00332AD62D6345BB0097F8EA /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				00332AB42D6344120097F8EA /* SimpleToDoAppKitMVC */,
+				00332ADA2D6345BB0097F8EA /* SimpleTodo-AppKit-MVC */,
 			);
-			name = SimpleToDoAppKitMVC;
+			name = "SimpleTodo-AppKit-MVC";
 			packageProductDependencies = (
 			);
-			productName = SimpleToDoAppKitMVC;
-			productReference = 00332AB22D6344120097F8EA /* SimpleToDoAppKitMVC.app */;
+			productName = "SimpleTodo-AppKit-MVC";
+			productReference = 00332AD82D6345BB0097F8EA /* SimpleTodo-AppKit-MVC.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		00332AAA2D6344120097F8EA /* Project object */ = {
+		00332AD02D6345BB0097F8EA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
-					00332AB12D6344120097F8EA = {
+					00332AD72D6345BB0097F8EA = {
 						CreatedOnToolsVersion = 16.2;
 					};
 				};
 			};
-			buildConfigurationList = 00332AAD2D6344120097F8EA /* Build configuration list for PBXProject "SimpleToDoAppKitMVC" */;
+			buildConfigurationList = 00332AD32D6345BB0097F8EA /* Build configuration list for PBXProject "SimpleTodo-AppKit-MVC" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 00332AA92D6344120097F8EA;
+			mainGroup = 00332ACF2D6345BB0097F8EA;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 00332AB32D6344120097F8EA /* Products */;
+			productRefGroup = 00332AD92D6345BB0097F8EA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				00332AB12D6344120097F8EA /* SimpleToDoAppKitMVC */,
+				00332AD72D6345BB0097F8EA /* SimpleTodo-AppKit-MVC */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		00332AB02D6344120097F8EA /* Resources */ = {
+		00332AD62D6345BB0097F8EA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -115,7 +115,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		00332AAE2D6344120097F8EA /* Sources */ = {
+		00332AD42D6345BB0097F8EA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -125,7 +125,7 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		00332ABF2D6344130097F8EA /* Debug */ = {
+		00332AE52D6345BC0097F8EA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -188,7 +188,7 @@
 			};
 			name = Debug;
 		};
-		00332AC02D6344130097F8EA /* Release */ = {
+		00332AE62D6345BC0097F8EA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -243,12 +243,12 @@
 			};
 			name = Release;
 		};
-		00332AC22D6344130097F8EA /* Debug */ = {
+		00332AE82D6345BC0097F8EA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = SimpleToDoAppKitMVC/SimpleToDoAppKitMVC.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "SimpleTodo-AppKit-MVC/SimpleTodo_AppKit_MVC.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -263,19 +263,19 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.drypot.SimpleToDoAppKitMVC;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.drypot.SimpleTodo-AppKit-MVC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
-		00332AC32D6344130097F8EA /* Release */ = {
+		00332AE92D6345BC0097F8EA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = SimpleToDoAppKitMVC/SimpleToDoAppKitMVC.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "SimpleTodo-AppKit-MVC/SimpleTodo_AppKit_MVC.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -290,7 +290,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.drypot.SimpleToDoAppKitMVC;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.drypot.SimpleTodo-AppKit-MVC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -300,25 +300,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00332AAD2D6344120097F8EA /* Build configuration list for PBXProject "SimpleToDoAppKitMVC" */ = {
+		00332AD32D6345BB0097F8EA /* Build configuration list for PBXProject "SimpleTodo-AppKit-MVC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				00332ABF2D6344130097F8EA /* Debug */,
-				00332AC02D6344130097F8EA /* Release */,
+				00332AE52D6345BC0097F8EA /* Debug */,
+				00332AE62D6345BC0097F8EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		00332AC12D6344130097F8EA /* Build configuration list for PBXNativeTarget "SimpleToDoAppKitMVC" */ = {
+		00332AE72D6345BC0097F8EA /* Build configuration list for PBXNativeTarget "SimpleTodo-AppKit-MVC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				00332AC22D6344130097F8EA /* Debug */,
-				00332AC32D6344130097F8EA /* Release */,
+				00332AE82D6345BC0097F8EA /* Debug */,
+				00332AE92D6345BC0097F8EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 00332AAA2D6344120097F8EA /* Project object */;
+	rootObject = 00332AD02D6345BB0097F8EA /* Project object */;
 }

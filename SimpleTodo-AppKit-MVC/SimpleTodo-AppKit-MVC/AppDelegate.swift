@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  SimpleToDoAppKitMVC
+//  SimpleTodo-AppKit-MVC
 //
 //  Created by Kyuhyun Park on 2/17/25.
 //
