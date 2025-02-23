@@ -9,46 +9,42 @@ import Cocoa
 
 class TodoDetailController: NSViewController {
 
-    let padding = 20.0
+    var repository: Repository!
+    var homeController: HomeControllerProtocol!
 
-    let stackView = NSStackView()
-
-    var homeControllerDelegate: HomeControllerDelegate!
+    let todoTitle = NSTextField(labelWithString: "...")
+    let todoDetail = NSTextView()
 
     override func loadView() {
         view = NSView()
         view.translatesAutoresizingMaskIntoConstraints = false
 
-        setupStackView()
-        setupStackItems()
+        setupFields()
     }
 
-    private func setupStackView() {
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.orientation = .vertical
-        stackView.alignment = .leading
-        view.addSubview(stackView)
+    func setupFields() {
+        todoTitle.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(todoTitle)
+
+        todoDetail.translatesAutoresizingMaskIntoConstraints = false
+        todoDetail.string = "..."
+        todoDetail.drawsBackground = false
+        view.addSubview(todoDetail)
 
         NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
-            stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
-            stackView.widthAnchor.constraint(greaterThanOrEqualToConstant: 400),
-            stackView.heightAnchor.constraint(greaterThanOrEqualToConstant: 400),
+            todoTitle.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
+            todoTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            todoTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+
+            todoDetail.topAnchor.constraint(equalTo: todoTitle.bottomAnchor, constant: 20),
+            todoDetail.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            todoDetail.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            todoDetail.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
         ])
     }
 
-    func setupStackItems() {
-        let textField = NSTextField(string: "...")
-        stackView.addArrangedSubview(textField)
-
-        let button1 = NSButton(title: "Button 1", target: self, action: #selector(button1Clicked))
-        stackView.addArrangedSubview(button1)
-    }
-
-    @objc func button1Clicked(_ sender: NSButton) {
-        print("button1 clicked")
+    func reloadData() {
+        todoTitle.stringValue = repository.selectedTodo?.title ?? "..."
     }
 
 }

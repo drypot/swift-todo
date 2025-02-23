@@ -9,19 +9,37 @@ import Foundation
 
 class Repository {
     private(set) var subjects = [Subject]()
+    private(set) var selectedSubject: Subject?
+    private(set) var selectedTodo: Todo?
+
+    var subjectSelected: Bool {
+        return selectedSubject != nil
+    }
+
+    var todoSelected: Bool {
+        return selectedTodo != nil
+    }
 
     func load() {
         do {
-            var subject = Subject(title: "Trip")
-            subject.todos.append(Todo(subjectID: subject.id, title: "Buy ticket"))
-            subject.todos.append(Todo(subjectID: subject.id, title: "Book hotel"))
+            let subject = Subject(title: "Trip")
+            subject.todos.append(Todo(title: "Buy ticket", subjectID: subject.id))
+            subject.todos.append(Todo(title: "Book hotel", subjectID: subject.id))
+            subject.todos.append(Todo(title: "Packing", subjectID: subject.id))
             subjects.append(subject)
         }
         do {
-            var subject = Subject(title: "Shopping")
-            subject.todos.append(Todo(subjectID: subject.id, title: "Goods 1"))
-            subject.todos.append(Todo(subjectID: subject.id, title: "Goods 2"))
-            subject.todos.append(Todo(subjectID: subject.id, title: "Goods 3"))
+            let subject = Subject(title: "Shopping")
+            subject.todos.append(Todo(title: "Goods 1", subjectID: subject.id))
+            subject.todos.append(Todo(title: "Goods 2", subjectID: subject.id))
+            subject.todos.append(Todo(title: "Goods 3", subjectID: subject.id))
+            subjects.append(subject)
+        }
+        do {
+            let subject = Subject(title: "Books")
+            subject.todos.append(Todo(title: "Book 1", subjectID: subject.id))
+            subject.todos.append(Todo(title: "Book 2", subjectID: subject.id))
+            subject.todos.append(Todo(title: "Book 3", subjectID: subject.id))
             subjects.append(subject)
         }
     }
@@ -31,36 +49,67 @@ class Repository {
     }
 
     func addNewSubject(withTitle title: String) {
-        subjects.append(Subject(title: title))
+        let subject = Subject(title: title)
+        subject.todos.append(Todo(title: "Job 1", subjectID: subject.id))
+        subject.todos.append(Todo(title: "Job 2", subjectID: subject.id))
+        subject.todos.append(Todo(title: "Job 3", subjectID: subject.id))
+        subjects.append(subject)
     }
 
     func removeSubject(at index: Array<Subject>.Index) {
         subjects.remove(at: index)
     }
 
-    func updateSubject(at index: Array<Subject>.Index, subject: Subject) {
-        subjects[index] = subject
-    }
-    
-    func updateTodo(_ todo: Todo) {
-        let (subjectIndex, todoIndex) = index(of: todo)
-        subjects[subjectIndex].todos[todoIndex] = todo
+    func selectSubject(at index: Array<Subject>.Index) {
+        if subjects.indices.contains(index) {
+            selectedSubject = subjects[index]
+        } else {
+            selectedSubject = nil
+        }
     }
 
-    func deleteTodo(_ todo: Todo) {
-        let (subjectIndex, todoIndex) = index(of: todo)
-        subjects[subjectIndex].todos.remove(at: todoIndex)
+    func deselectSubject() {
+        selectedSubject = nil
     }
 
-    private func index(of todo: Todo) -> (subjectIndex: Array<Subject>.Index, todoIndex: Array<Todo>.Index) {
-        guard let subjectIndex = subjects.firstIndex(where: { $0.id == todo.subjectID }) else {
-            fatalError("Invalid subject.")
-        }
-        guard let todoIndex = subjects[subjectIndex].todos.firstIndex(where: { $0.id == todo.id }) else {
-            fatalError("Invalid todo.")
-        }
-        return (subjectIndex, todoIndex)
+    func addNewTodo(withTitle title: String) {
+        guard let selectedSubject else { return }
+        let todo = Todo(title: title, subjectID: selectedSubject.id)
+        selectedSubject.todos.append(todo)
     }
+
+    func removeTodo(at index: Array<Todo>.Index) {
+        guard let selectedSubject else { return }
+        selectedSubject.todos.remove(at: index)
+    }
+
+    func selectTodo(at index: Array<Subject>.Index) {
+        guard let selectedSubject else { return }
+        if selectedSubject.todos.indices.contains(index) {
+            selectedTodo = selectedSubject.todos[index]
+        } else {
+            selectedTodo = nil
+        }
+    }
+
+    func deselectTodo() {
+        selectedTodo = nil
+    }
+
+    //    func deleteTodo(_ todo: Todo) {
+    //        let (subjectIndex, todoIndex) = index(of: todo)
+    //        subjects[subjectIndex].todos.remove(at: todoIndex)
+    //    }
+    //
+    //    private func index(of todo: Todo) -> (subjectIndex: Array<Subject>.Index, todoIndex: Array<Todo>.Index) {
+    //        guard let subjectIndex = subjects.firstIndex(where: { $0.id == todo.subjectID }) else {
+    //            fatalError("Invalid subject.")
+    //        }
+    //        guard let todoIndex = subjects[subjectIndex].todos.firstIndex(where: { $0.id == todo.id }) else {
+    //            fatalError("Invalid todo.")
+    //        }
+    //        return (subjectIndex, todoIndex)
+    //    }
 
 }
 

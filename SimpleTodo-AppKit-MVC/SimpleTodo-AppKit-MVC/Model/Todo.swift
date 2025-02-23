@@ -7,14 +7,23 @@
 
 import Foundation
 
-struct Todo: Identifiable, Equatable {
+class Todo: Identifiable {
 
     typealias ID = UUID
 
-    let id = ID()
+    let id: ID
     var subjectID: Subject.ID
-    var createdAt = Date()
-    var done = false
-    var title = ""
+    var title: String
+    var createdAt: Date
+    var done: Bool
+
+    init(title: String = "", subjectID: Subject.ID) {
+        self.id = ID()
+        self.subjectID = subjectID
+        self.title = title
+        self.createdAt = Date()
+        self.done = false
+    }
+
 }
 

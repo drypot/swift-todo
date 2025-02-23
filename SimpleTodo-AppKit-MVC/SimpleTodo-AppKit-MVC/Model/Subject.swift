@@ -7,12 +7,19 @@
 
 import Foundation
 
-struct Subject: Identifiable, Equatable {
+class Subject: Identifiable {
 
     typealias ID = UUID
 
-    let id = ID()
-    var createdAt = Date()
-    var title = ""
-    var todos = [Todo]()
+    let id: ID
+    var title: String
+    var createdAt: Date
+    var todos: [Todo]
+
+    init(title: String = "") {
+        self.id = ID()
+        self.createdAt = Date()
+        self.title = title
+        self.todos = [Todo]()
+    }
 }

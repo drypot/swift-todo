@@ -7,10 +7,6 @@
 
 import AppKit
 
-protocol HomeControllerDelegate: AnyObject {
-
-}
-
 class HomeController: NSSplitViewController {
 
     var subjectListController = SubjectListController()
@@ -25,7 +21,6 @@ class HomeController: NSSplitViewController {
         setupRepository()
         setupSplitView()
 
-
         NSLayoutConstraint.activate([
             view.widthAnchor.constraint(greaterThanOrEqualToConstant: 400),
             view.heightAnchor.constraint(greaterThanOrEqualToConstant: 400),
@@ -39,7 +34,7 @@ class HomeController: NSSplitViewController {
 
     private func setupSplitView() {
         do {
-            subjectListController.homeControllerDelegate = self
+            subjectListController.homeController = self
             subjectListController.repository = repository
             let splitViewItem = NSSplitViewItem(sidebarWithViewController: subjectListController)
             splitViewItem.canCollapse = false
@@ -48,21 +43,38 @@ class HomeController: NSSplitViewController {
         }
 
         do {
-            todoListController.homeControllerDelegate = self
+            todoListController.homeController = self
+            todoListController.repository = repository
             let splitViewItem = NSSplitViewItem(sidebarWithViewController: todoListController)
             splitViewItem.canCollapse = false
+            splitViewItem.minimumThickness = 200
             addSplitViewItem(splitViewItem)
         }
 
         do {
-            todoDetailController.homeControllerDelegate = self
+            todoDetailController.homeController = self
+            todoDetailController.repository = repository
             let splitViewItem = NSSplitViewItem(viewController: todoDetailController)
+            splitViewItem.canCollapse = false
+            splitViewItem.minimumThickness = 400
             addSplitViewItem(splitViewItem)
         }
     }
 
 }
 
-extension HomeController: HomeControllerDelegate {
+protocol HomeControllerProtocol: AnyObject {
+    func reloadTodoList()
+    func reloadTodoDetail()
+}
 
+extension HomeController: HomeControllerProtocol {
+
+    func reloadTodoList() {
+        todoListController.reloadData()
+    }
+
+    func reloadTodoDetail() {
+        todoDetailController.reloadData()
+    }
 }

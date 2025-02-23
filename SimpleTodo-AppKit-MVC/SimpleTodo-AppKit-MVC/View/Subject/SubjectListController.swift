@@ -13,7 +13,7 @@ class SubjectListController: NSViewController {
     let tableView = NSTableView()
 
     var repository: Repository!
-    var homeControllerDelegate: HomeControllerDelegate!
+    weak var homeController: HomeControllerProtocol!
 
     var items: [Subject] {
         return repository.subjects
@@ -70,7 +70,7 @@ class SubjectListController: NSViewController {
         view.addSubview(deleteButton)
 
         NSLayoutConstraint.activate([
-            addButton.topAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 20),
+            addButton.topAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 8),
             addButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
 
             deleteButton.topAnchor.constraint(equalTo: addButton.bottomAnchor, constant: 8),
@@ -161,6 +161,17 @@ extension SubjectListController: NSTableViewDelegate {
         return cell
     }
 
+    func tableViewSelectionDidChange(_ notification: Notification) {
+        let selectedIndexes = tableView.selectedRowIndexes
+        if selectedIndexes.count > 0 {
+            let selectedRow = selectedIndexes.first!
+            repository.selectSubject(at: selectedRow)
+        } else {
+            repository.deselectSubject()
+        }
+        homeController.reloadTodoList()
+    }
+
 }
 
 extension SubjectListController: NSTextFieldDelegate {
@@ -186,9 +197,8 @@ extension SubjectListController: NSTextFieldDelegate {
 
         switch columnID.rawValue {
         case "title":
-            var subject = repository.subjects[row]
+            let subject = items[row]
             subject.title = textField.stringValue
-            repository.updateSubject(at: row, subject: subject)
         default:
             break
         }
