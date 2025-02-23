@@ -8,7 +8,7 @@
 import Foundation
 
 class Repository {
-    var subjects = [Subject]()
+    private(set) var subjects = [Subject]()
 
     func load() {
         do {
@@ -30,6 +30,18 @@ class Repository {
         print("repository: save not implemented")
     }
 
+    func addNewSubject(withTitle title: String) {
+        subjects.append(Subject(title: title))
+    }
+
+    func removeSubject(at index: Array<Subject>.Index) {
+        subjects.remove(at: index)
+    }
+
+    func updateSubject(at index: Array<Subject>.Index, subject: Subject) {
+        subjects[index] = subject
+    }
+    
     func updateTodo(_ todo: Todo) {
         let (subjectIndex, todoIndex) = index(of: todo)
         subjects[subjectIndex].todos[todoIndex] = todo

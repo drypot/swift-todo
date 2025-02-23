@@ -13,23 +13,37 @@ protocol HomeControllerDelegate: AnyObject {
 
 class HomeController: NSSplitViewController {
 
-    let padding = 20.0
-
     var subjectListController = SubjectListController()
     var todoListController = TodoListController()
     var todoDetailController = TodoDetailController()
 
-    // loadView() 를 오버라이드해도 되는 경우가 있지만
-    // NSSplitViewController 의 경우 이런 저런 사전작업을 하는 것 같다.
-    // loadView() 를 처음부터 만드는 대신 viewDidLoad() 를 쓰기로 한다.
+    var repository: Repository!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupRepository()
+        setupSplitView()
+
+
+        NSLayoutConstraint.activate([
+            view.widthAnchor.constraint(greaterThanOrEqualToConstant: 400),
+            view.heightAnchor.constraint(greaterThanOrEqualToConstant: 400),
+        ])
+    }
+
+    private func setupRepository() {
+        repository = Repository()
+        repository.load()
+    }
+
+    private func setupSplitView() {
         do {
             subjectListController.homeControllerDelegate = self
+            subjectListController.repository = repository
             let splitViewItem = NSSplitViewItem(sidebarWithViewController: subjectListController)
             splitViewItem.canCollapse = false
+            splitViewItem.minimumThickness = 200
             addSplitViewItem(splitViewItem)
         }
 
@@ -45,10 +59,6 @@ class HomeController: NSSplitViewController {
             let splitViewItem = NSSplitViewItem(viewController: todoDetailController)
             addSplitViewItem(splitViewItem)
         }
-
-        NSLayoutConstraint.activate([
-            view.heightAnchor.constraint(greaterThanOrEqualToConstant: 400),
-        ])
     }
 
 }

@@ -9,40 +9,27 @@ import AppKit
 
 class BlankController: NSViewController {
 
-    let padding = 20.0
-
-    let stackView = NSStackView()
-
     override func loadView() {
         view = NSView()
         view.translatesAutoresizingMaskIntoConstraints = false
 
-        setupStackView()
-        setupStackItems()
+        setupViews()
     }
 
-    private func setupStackView() {
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.orientation = .vertical
-        stackView.alignment = .leading
-        view.addSubview(stackView)
-
-        NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
-            stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: padding),
-            stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -padding),
-            stackView.widthAnchor.constraint(greaterThanOrEqualToConstant: 400),
-            stackView.heightAnchor.constraint(greaterThanOrEqualToConstant: 400),
-        ])
-    }
-
-    func setupStackItems() {
+    func setupViews() {
         let textField = NSTextField(string: "...")
-        stackView.addArrangedSubview(textField)
+        view.addSubview(textField)
 
         let button1 = NSButton(title: "Button 1", target: self, action: #selector(button1Clicked))
-        stackView.addArrangedSubview(button1)
+        view.addSubview(button1)
+
+        NSLayoutConstraint.activate([
+            textField.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
+            textField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+
+            button1.topAnchor.constraint(equalToSystemSpacingBelow: textField.bottomAnchor, multiplier: 1),
+            button1.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+        ])
     }
 
     @objc func button1Clicked(_ sender: NSButton) {

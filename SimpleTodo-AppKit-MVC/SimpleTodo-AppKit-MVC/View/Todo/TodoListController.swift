@@ -30,10 +30,10 @@ class TodoListController: NSViewController {
         view.addSubview(stackView)
 
         NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
-            stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: padding),
-            stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -padding),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
+            stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
             stackView.widthAnchor.constraint(greaterThanOrEqualToConstant: 400),
             stackView.heightAnchor.constraint(greaterThanOrEqualToConstant: 400),
         ])
